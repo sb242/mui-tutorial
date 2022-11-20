@@ -4,7 +4,7 @@ import Rightbar from "./components/Rightbar";
 import Navbar from "./components/Navbar";
 import { Box, Container, Stack } from "@mui/system";
 import Add from "./components/Add";
-import { createTheme } from "@mui/material";
+import { createTheme, CssBaseline } from "@mui/material";
 import { useState } from "react";
 import { ThemeProvider } from "@emotion/react";
 
@@ -19,10 +19,11 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box>
+      <CssBaseline />
+      <Box bgcolor={"background.default"} color={"text.primary"}>
         <Navbar />
         <Stack direction="row" spacing={2} justifyContent="space-between">
-          <Sidebar />
+          <Sidebar setMode={setMode} mode={mode} />
           <Feed />
           <Rightbar />
         </Stack>
